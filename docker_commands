@@ -1,0 +1,86 @@
+Here's a consolidated list of important Docker commands:
+
+1. **Images and Containers Management**:
+   - `docker pull <image>`
+   - `docker build -t <image_name> <path_to_dockerfile>`
+   - `docker images`
+   - `docker rmi <image>`
+   - `docker ps`
+   - `docker ps -a`
+   - `docker rm <container>`
+   - `docker start <container>`
+   - `docker stop <container>`
+   - `docker restart <container>`
+
+2. **Running Containers**:
+   - `docker run <image>`
+   - `docker run -d <image>`
+   - `docker run -it <image> <command>`
+   - `docker exec -it <container> <command>`
+
+3. **Logs and Monitoring**:
+   - `docker logs <container>`
+   - `docker stats`
+
+4. **Networking**:
+   - `docker network ls`
+   - `docker network create <network>`
+   - `docker network connect <network> <container>`
+   - `docker network disconnect <network> <container>`
+
+5. **Volumes**:
+   - `docker volume ls`
+   - `docker volume create <volume>`
+   - `docker run -v <volume>:<container_path> <image>`
+
+6. **Removing Resources**:
+   - `docker system prune`
+   - `docker system prune -a`
+
+7. **Registry and Repositories**:
+   - `docker login`
+   - `docker push <image>`
+   - `docker tag <image> <registry>/<repository>:<tag>`
+
+8. **Docker Compose**:
+   - `docker-compose up`
+   - `docker-compose down`
+
+9. **Managing Images and Containers**:
+   - `docker inspect <container_or_image>`
+   - `docker top <container>`
+   - `docker diff <container>`
+
+10. **Container Cleanup and Management**:
+    - `docker pause <container>`
+    - `docker unpause <container>`
+    - `docker rename <old_name> <new_name>`
+    - `docker update <container>`
+
+11. **Image Cleanup**:
+    - `docker image prune`
+    - `docker image prune -a`
+    - `docker image history <image>`
+
+12. **System Information**:
+    - `docker info`
+    - `docker version`
+
+13. **Advanced Networking**:
+    - `docker network inspect <network>`
+    - `docker network disconnect -f <network> <container>`
+
+14. **Security**:
+    - `docker scan <image>`
+    - `docker secret create <secret_name> <path_to_secret_file>`
+    - `docker secret ls`
+
+15. **Docker Swarm (Orchestration)**:
+    - `docker swarm init`
+    - `docker service create`
+    - `docker node ls`
+
+16. **Docker Contexts**:
+    - `docker context use <context_name>`
+
+Feel free to refer to this list whenever you need to use specific Docker commands for different tasks.
