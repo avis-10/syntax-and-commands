@@ -1,0 +1,113 @@
+Absolutely, here is an extensive list of Git commands covering various aspects of version control:
+
+1. **Setting Up**:
+
+   - `git init`: Initialize a new Git repository.
+   - `git clone <repository_url>`: Clone a remote repository to your local machine.
+   - `git config --global user.name "<your_name>"`: Set your name for commits.
+   - `git config --global user.email "<your_email>"`: Set your email for commits.
+
+2. **Basic Operations**:
+
+   - `git add <file>`: Add a file to the staging area.
+   - `git add .`: Add all changes to the staging area.
+   - `git commit -m "<commit_message>"`: Commit staged changes with a message.
+   - `git commit -a -m "<commit_message>"`: Commit all changes, including modifications and deletions.
+   - `git status`: Show the status of the working directory and staging area.
+   - `git diff`: Show the differences between the working directory and the last commit.
+   - `git diff <commit1> <commit2>`: Show differences between two commits.
+
+3. **Branching**:
+
+   - `git branch`: List all local branches.
+   - `git branch <branch_name>`: Create a new branch.
+   - `git checkout <branch_name>`: Switch to a different branch.
+   - `git checkout -b <branch_name>`: Create and switch to a new branch.
+   - `git merge <branch_name>`: Merge changes from one branch into the current branch.
+   - `git rebase <branch_name>`: Reapply your changes on top of another branch's changes.
+
+4. **Remote Repositories**:
+
+   - `git remote -v`: List remote repositories.
+   - `git remote add <remote_name> <repository_url>`: Add a new remote repository.
+   - `git pull <remote_name> <branch_name>`: Fetch and merge changes from a remote branch.
+   - `git push <remote_name> <branch_name>`: Push local changes to a remote branch.
+   - `git push <remote_name> --tags`: Push tags to the remote repository.
+
+5. **Viewing Changes and History**:
+
+   - `git log`: Display the commit history.
+   - `git log --graph`: Show the commit history as a graph.
+   - `git log --oneline`: Show compact commit history.
+   - `git log <file>`: Show commit history for a specific file.
+   - `git show <commit_hash>`: Show details of a specific commit.
+   - `git blame <file>`: Show who last modified each line in a file.
+
+6. **Undoing Changes**:
+
+   - `git reset <file>`: Unstage changes from the staging area.
+   - `git reset --hard HEAD`: Discard all changes in the working directory.
+   - `git reset --hard <commit_hash>`: Reset to a specific commit, discarding changes.
+   - `git revert <commit_hash>`: Create a new commit that undoes the changes of a specific commit.
+
+7. **Tagging**:
+
+   - `git tag`: List existing tags.
+   - `git tag <tag_name> <commit_hash>`: Create a lightweight tag.
+   - `git tag -a <tag_name> -m "<tag_message>"`: Create an annotated tag.
+   - `git push --tags`: Push tags to the remote repository.
+
+8. **Stashing**:
+
+   - `git stash`: Stash changes in a temporary area.
+   - `git stash list`: List stashes.
+   - `git stash pop`: Apply the most recent stash and remove it.
+   - `git stash apply <stash_id>`: Apply a specific stash.
+
+9. **Submodules**:
+
+   - `git submodule add <repository_url> <path>`: Add a submodule to your repository.
+   - `git submodule init`: Initialize submodules after cloning a repository.
+   - `git submodule update`: Update submodules to their latest commit.
+   - `git submodule update --remote`: Update submodules and fetch the latest changes.
+
+10. **Rewriting History**:
+
+    - `git commit --amend`: Amend the last commit.
+    - `git rebase -i <commit_hash>`: Interactive rebase for squashing, reordering, etc.
+
+11. **Cherry-Picking**:
+
+    - `git cherry-pick <commit_hash>`: Apply a commit from another branch to the current branch.
+
+12. **Remote Management**:
+
+    - `git remote prune <remote_name>`: Remove remote references to branches that have been deleted on the remote repository.
+    - `git remote show <remote_name>`: Show more details about a remote repository.
+
+13. **Ignoring Files**:
+
+    - Create a `.gitignore` file to specify files and directories to be ignored by Git.
+
+14. **Reflogs**:
+
+    - `git reflog`: Show a log of all changes to references (branches, HEAD, etc.).
+
+15. **Bisecting**:
+
+    - `git bisect start`: Start a binary search to find a commit that introduced a bug.
+    - `git bisect good <commit_hash>`: Mark a commit as good.
+    - `git bisect bad <commit_hash>`: Mark a commit as bad.
+    - `git bisect reset`: Finish the bisect process and return to the original state.
+
+16. **Git Configurations**:
+
+    - `git config --global user.name "<your_name>"`: Set your name for commits.
+    - `git config --global user.email "<your_email>"`: Set your email for commits.
+    - `git config --global alias.<alias_name> <git_command>`: Create aliases for Git commands.
+
+17. **Git LFS (Large File Storage)**:
+
+    - `git lfs install`: Initialize Git LFS for the repository.
+    - `git lfs track "<file_extension>"`: Track large files with Git LFS.
+
