@@ -111,3 +111,82 @@ watch -n 0.1 curl http://34.66.241.150:8100/currency-conversion-feign/from/USD/t
 
 docker push in28min/mmv2-currency-conversion-service:0.0.12-SNAPSHOT
 docker push in28min/mmv2-currency-exchange-service:0.0.12-SNAPSHOT
+
+
+
+
+
+
+
+
+Additional Commands & Information :
+Certainly, here's a list of important Kubernetes commands along with a brief context for each:
+
+1. **Cluster Info and Context**:
+   - `kubectl cluster-info`: Display cluster information.
+   - `kubectl config use-context <context_name>`: Switch to a specific context (cluster).
+
+2. **Pods and Containers**:
+   - `kubectl get pods`: List all pods in the current namespace.
+   - `kubectl describe pod <pod_name>`: Describe a pod for details.
+   - `kubectl logs <pod_name>`: View logs from a pod.
+   - `kubectl exec -it <pod_name> -- <command>`: Run a command inside a pod.
+
+3. **Deployments**:
+   - `kubectl get deployments`: List all deployments in the current namespace.
+   - `kubectl describe deployment <deployment_name>`: Describe a deployment for details.
+   - `kubectl scale deployment <deployment_name> --replicas=<replica_count>`: Scale a deployment.
+
+4. **Services**:
+   - `kubectl get services`: List all services in the current namespace.
+   - `kubectl describe service <service_name>`: Describe a service for details.
+
+5. **ConfigMaps and Secrets**:
+   - `kubectl get configmaps`: List all configmaps in the current namespace.
+   - `kubectl describe configmap <configmap_name>`: Describe a configmap for details.
+   - `kubectl get secrets`: List all secrets in the current namespace.
+   - `kubectl describe secret <secret_name>`: Describe a secret for details.
+
+6. **Namespace Management**:
+   - `kubectl get namespaces`: List all namespaces.
+   - `kubectl create namespace <namespace_name>`: Create a new namespace.
+   - `kubectl delete namespace <namespace_name>`: Delete a namespace and its resources.
+
+7. **Rollouts and Rollbacks**:
+   - `kubectl rollout status deployment <deployment_name>`: Check rollout status.
+   - `kubectl rollout history deployment <deployment_name>`: View rollout history.
+   - `kubectl rollout undo deployment <deployment_name>`: Rollback to previous version.
+
+8. **Pod Affinity and Anti-Affinity**:
+   - `kubectl get pod <pod_name> -o jsonpath='{.spec.affinity.podAffinity.requiredDuringSchedulingIgnoredDuringExecution}'`: Get pod affinity rules.
+   - `kubectl get pod <pod_name> -o jsonpath='{.spec.affinity.podAntiAffinity.requiredDuringSchedulingIgnoredDuringExecution}'`: Get pod anti-affinity rules.
+
+9. **Label and Annotations**:
+   - `kubectl label <resource_type> <resource_name> <key>=<value>`: Attach a label to a resource.
+   - `kubectl annotate <resource_type> <resource_name> <key>=<value>`: Attach an annotation to a resource.
+
+10. **Kubernetes Dashboard**:
+    - `kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.4.0/aio/deploy/recommended.yaml`: Deploy the Kubernetes Dashboard.
+    - `kubectl proxy`: Start a proxy to access the dashboard locally.
+
+
+1. **Creating Deployments**:
+
+   - `kubectl create deployment <deployment_name> --image=<image_name>`: Create a deployment with a specified image.
+   - `kubectl create deployment <deployment_name> --image=<image_name> --replicas=<replica_count>`: Create a deployment with a specific number of replicas.
+   - `kubectl create deployment <deployment_name> --image=<image_name> --dry-run=client -o yaml > deployment.yaml`: Generate a deployment YAML file without actually creating the deployment (useful for customization).
+   - `kubectl apply -f deployment.yaml`: Apply the deployment configuration from a YAML file.
+
+2. **Exposing Deployments as Services**:
+
+   - `kubectl expose deployment <deployment_name> --port=<port_number> --target-port=<target_port>`: Expose a deployment as a service with specified ports.
+   - `kubectl expose deployment <deployment_name> --type=LoadBalancer --port=<port_number> --target-port=<target_port>`: Expose a deployment as a LoadBalancer service (requires cloud provider support).
+   - `kubectl expose deployment <deployment_name> --type=NodePort --port=<port_number> --target-port=<target_port>`: Expose a deployment as a NodePort service.
+   - `kubectl expose deployment <deployment_name> --type=ClusterIP --port=<port_number> --target-port=<target_port>`: Expose a deployment as a ClusterIP service (default type).
+
+3. **Updating Deployments**:
+
+   - `kubectl set image deployment/<deployment_name> <container_name>=<new_image_name>`: Update the image of a deployment's container.
+   - `kubectl edit deployment/<deployment_name>`: Edit the deployment configuration in the default text editor.
+
+Remember to replace `<deployment_name>`, `<image_name>`, `<port_number>`, `<target_port>`, and other placeholders with actual values as needed.
