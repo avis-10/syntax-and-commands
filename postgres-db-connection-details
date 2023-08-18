@@ -1,0 +1,26 @@
+Hosted Database connection details: 
+
+service provider : cloud.yugabyte.com
+google login - sivamessiva10@gmail.com
+tier : free
+cluster name : awesome-wolverine-avisdb
+provider : AWS
+region : Mumbai (ap-south-1)
+
+
+Need to add allowed ip lists to access yugabyte's hosted DB
+Currently configured cluster IP Allow List: 
+Name                Description             IP Address(es)
+device-ip-siva      device-ip-siva          219.91.202.107/32
+
+
+
+Database Credentials :
+Cluster: awesome-wolverine-avisdb
+YSQL Username: avis-db-admin
+YSQL Password: Avis@dbcreds10
+YCQL Username: avis-db-admin
+YCQL Password: Avis@dbcreds10
+host: ap-south-1.501f7019-97e5-45b2-be0c-f7d4b77e19ce.aws.ybdb.io
+port: 5433
+
