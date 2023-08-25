@@ -1,0 +1,39 @@
+The `@Bulkhead` annotation provided by Resilience4j allows you to add bulkheading behavior to your methods. Here are the common configuration properties that you can use with the `@Bulkhead` annotation:
+
+1. **value** (default: 25):
+   The maximum number of concurrent calls that are allowed to the method.
+
+2. **waitingTaskQueue** (default: 0):
+   The maximum number of tasks that can be waiting to acquire a permit to execute the method.
+
+3. **type** (default: Semaphore):
+   The type of bulkhead implementation. It can be `Semaphore` or `ThreadPool`.
+
+4. **maxConcurrentCalls** (default: Integer.MAX_VALUE):
+   The maximum number of concurrent calls that are allowed when using the `ThreadPool` type bulkhead.
+
+5. **maxWaitDuration** (default: Duration.ofMillis(0)):
+   The maximum time a call is allowed to wait to acquire a permit to execute the method.
+
+6. **fairCallHandlingStrategyEnabled** (default: false):
+   Whether to enable fair call handling strategy. If enabled, the tasks waiting in the queue will be executed in the order they were submitted.
+
+7. **writableStackTraceEnabled** (default: true):
+   Whether to include the writable stack trace in bulkhead exceptions.
+
+8. **bulkheadExceptions** (default: {}):
+   Specifies the exception types that should trigger bulkhead behavior. You can provide an array of exception classes that should be considered for bulkhead.
+
+9. **recordExceptions** (default: {}):
+   Specifies the exception types for which the occurrences should be counted as recorded. These exceptions contribute to the bulkhead behavior.
+
+10. **recordFailurePredicate** (default: null):
+    A custom predicate that determines if a failure should be recorded. If set, it takes precedence over `bulkheadExceptions`.
+
+11. **writableStackTracePolicy** (default: Exception):
+    The policy to determine which exceptions should have writable stack traces. It can be `ALL`, `NONE`, or `EXCEPTION_CLASS`.
+
+12. **writableStackTraceMaxDepth** (default: 100):
+    The maximum depth of the stack trace to include when `writableStackTracePolicy` is set to `EXCEPTION_CLASS`.
+
+These are some of the key configuration properties available with the `@Bulkhead` annotation in Resilience4j. You can use these properties to customize the bulkheading behavior according to your needs. Similar to the `@Retry` and `@CircuitBreaker` annotations, the `@Bulkhead` annotation is part of the Spring Boot Resilience4j integration and requires Resilience4j to be properly set up in your application.
