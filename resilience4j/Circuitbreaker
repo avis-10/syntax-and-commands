@@ -1,0 +1,51 @@
+The `@CircuitBreaker` annotation provided by Resilience4j allows you to add circuit-breaking behavior to your methods. Here are the common configuration properties that you can use with the `@CircuitBreaker` annotation:
+
+1. **failOn** (default: Exception.class):
+   Specifies the exception types that should be considered as failures for circuit breaking. You can provide an array of exception classes that should trigger circuit breaking.
+
+2. **failOnExceptions** (default: true):
+   Whether to consider exceptions as failures for circuit breaking. Set this to `false` to disable circuit breaking based on exceptions.
+
+3. **successThreshold** (default: 60%):
+   The minimum percentage of successful calls required to close the circuit. If the success rate falls below this threshold, the circuit opens.
+
+4. **minimumNumberOfCalls** (default: 100):
+   The minimum number of calls that must be recorded before the circuit breaker can calculate its state.
+
+5. **slidingWindowSize** (default: 100):
+   The size of the sliding window that is used to track the success rate. It determines the number of calls that contribute to the success rate calculation.
+
+6. **permittedNumberOfCallsInHalfOpenState** (default: 10):
+   The maximum number of calls allowed when the circuit breaker is in half-open state.
+
+7. **waitDurationInOpenState** (default: Duration.ofMillis(60000)):
+   The duration the circuit breaker will stay open before transitioning to half-open.
+
+8. **automaticTransitionFromOpenToHalfOpenEnabled** (default: true):
+   Whether the circuit breaker should automatically transition from open to half-open after `waitDurationInOpenState`.
+
+9. **recordExceptions** (default: {}):
+   Specifies the exception types for which the occurrences should be counted as recorded. These exceptions contribute to the success rate calculation.
+
+10. **ignoreExceptions** (default: {}):
+    Specifies the exception types that should be ignored for circuit-breaking purposes. Exceptions of these types won't affect the circuit breaker state.
+
+11. **ignoreExceptionsOnSuccess** (default: {}):
+    Specifies the exception types that should be ignored for circuit-breaking purposes even if the method call is successful.
+
+12. **recordExceptionPredicate** (default: null):
+    A custom predicate that determines if an exception should be recorded. If set, it takes precedence over `recordExceptions`.
+
+13. **recordFailurePredicate** (default: null):
+    A custom predicate that determines if a failure should be recorded. If set, it takes precedence over `failOn` and `recordExceptionPredicate`.
+
+14. **slidingWindowType** (default: COUNT_BASED):
+    The type of sliding window to use for tracking success rate. It can be `COUNT_BASED` or `TIME_BASED`.
+
+15. **permittedNumberOfCallsInHalfOpenState** (default: 10):
+    The maximum number of calls allowed when the circuit breaker is in half-open state.
+
+16. **slowCallDurationThreshold** (default: Duration.ofSeconds(2)):
+    The threshold duration for a call to be considered slow. Calls slower than this duration are considered slow and can contribute to circuit breaking.
+
+These are some of the key configuration properties available with the `@CircuitBreaker` annotation in Resilience4j. You can use these properties to customize the circuit-breaking behavior according to your needs. As with the `@Retry` annotation, the `@CircuitBreaker` annotation is part of the Spring Boot Resilience4j integration and requires Resilience4j to be properly set up in your application.
