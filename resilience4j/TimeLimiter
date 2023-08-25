@@ -1,0 +1,30 @@
+The `@TimeLimiter` annotation provided by Resilience4j allows you to add time limiting behavior to your methods. Here are the common configuration properties that you can use with the `@TimeLimiter` annotation:
+
+1. **value** (default: 1 second):
+   The maximum time duration that a method is allowed to execute. This can be specified in different time units like `ms`, `s`, `m`, `h`, and `d`.
+
+2. **name**:
+   An optional name for the time limiter. If not provided, Resilience4j will generate a default name.
+
+3. **fallbackMethod**:
+   The name of the fallback method to be executed when the time limit is exceeded. The fallback method must have the same signature as the annotated method.
+
+4. **cancelRunningFuture** (default: false):
+   Whether to cancel the running future when a timeout occurs. If set to `true`, a `TimeoutException` will be thrown and the running future will be canceled.
+
+5. **cancelRunningFuturePredicate** (default: null):
+   A custom predicate to determine if the running future should be canceled. If set, it takes precedence over `cancelRunningFuture`.
+
+6. **timeoutDuration** (default: Duration.ofMillis(0)):
+   The maximum time a call is allowed to wait to acquire a permit to execute the method. If set to a non-zero value, it allows waiting for a permit.
+
+7. **fallbackOn** (default: {}):
+   Specifies the exception types for which the fallback method should be triggered. You can provide an array of exception classes.
+
+8. **exceptionPredicate** (default: null):
+   A custom predicate that determines if an exception should trigger the fallback method. If set, it takes precedence over `fallbackOn`.
+
+9. **ignoreExceptions** (default: {}):
+   Specifies the exception types that should be ignored for time limiting purposes. Exceptions of these types won't affect the time limiter state.
+
+These are some of the key configuration properties available with the `@TimeLimiter` annotation in Resilience4j. You can use these properties to customize the time limiting behavior according to your needs. As with the other annotations discussed earlier, the `@TimeLimiter` annotation is part of the Spring Boot Resilience4j integration and requires Resilience4j to be properly set up in your application.
