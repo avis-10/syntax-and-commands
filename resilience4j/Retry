@@ -1,0 +1,48 @@
+Resilience4j is a popular library for building resilient applications in Java and Spring Boot. The `@Retry` annotation provided by Resilience4j allows you to add retry behavior to your methods. Here are the common configuration properties that you can use with the `@Retry` annotation:
+
+1. **maxAttempts** (default: 3):
+   The maximum number of retry attempts that will be made.
+
+2. **retryExceptions** (default: Exception.class):
+   Specifies the exception types that should trigger a retry. You can provide an array of exception classes that should be retried.
+
+3. **ignoreExceptions** (default: {}):
+   Specifies the exception types that should be ignored for retry purposes. If an exception matches both `retryExceptions` and `ignoreExceptions`, it will be retried.
+
+4. **retryOnResult** (default: false):
+   Whether to retry based on the return result of the method. If set to `true`, the method will be retried as long as the return result matches the `retryOnResultPredicate`.
+
+5. **retryOnExceptions** (default: true):
+   Whether to retry on exceptions. Set this to `false` to disable retrying on exceptions.
+
+6. **exceptionPredicate** (default: null):
+   A custom predicate that determines if an exception should trigger a retry. If set, it takes precedence over `retryExceptions`.
+
+7. **retryExceptionsIncludeSubclasses** (default: true):
+   Whether to include subclasses of the specified `retryExceptions` when determining if an exception should trigger a retry.
+
+8. **retryOnRuntimeExceptions** (default: false):
+   Whether to retry on runtime exceptions (subclasses of `RuntimeException`). Set this to `true` to enable retrying on runtime exceptions.
+
+9. **retryExceptionsLimit** (default: 0):
+   Limits the number of exceptions that will be retried. After reaching this limit, no more retries will be attempted.
+
+10. **maxRetryDuration** (default: Duration.ofSeconds(Long.MAX_VALUE)):
+    The maximum duration for which retry attempts will be made.
+
+11. **delay** (default: Duration.ZERO):
+    The delay between retry attempts.
+
+12. **randomized** (default: false):
+    Whether to use randomization for the delay between retries. This adds a random factor to the delay to prevent a "thundering herd" effect.
+
+13. **maxDelay** (default: Duration.ZERO):
+    The maximum delay between retry attempts.
+
+14. **waitDuration** (default: Duration.ZERO):
+    The fixed wait duration to be used if you want a constant delay between retries.
+
+15. **abortOn** (default: {}):
+    Specifies exception types that should lead to immediate termination without retries. You can provide an array of exception classes.
+
+These are some of the key configuration properties available with the `@Retry` annotation in Resilience4j. You can use these properties to tailor the retry behavior to your specific use case. Remember that the `@Retry` annotation is part of the Spring Boot Resilience4j integration, so you need to have Resilience4j on your classpath and properly set up in your application.
